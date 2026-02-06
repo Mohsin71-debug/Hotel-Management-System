@@ -1,6 +1,8 @@
 <?php
-include 'config.php';
+ob_start();
 session_start();
+include 'config.php';
+
 
 function prepareAndExecute($conn, $sql, $params)
 {

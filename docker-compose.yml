@@ -1,20 +1,16 @@
-version: '3.8'
+version: "3.3"
 
 services:
-
   web:
     build: .
+    container_name: hotel_web
     ports:
-      - "8080:80"
+      - "8081:80"
     depends_on:
       - db
     volumes:
       - .:/var/www/html
-    environment:
-      - MYSQL_HOST=db
-      - MYSQL_DB=bluebirdhotel
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=rootpassword
+    restart: always
 
   db:
     image: mysql:8.0
@@ -31,3 +27,4 @@ services:
 
 volumes:
   db_data:
+
